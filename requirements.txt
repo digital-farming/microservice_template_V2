@@ -3,3 +3,6 @@ SQLAlchemy
 asyncpg
 pytest
 psycopg2-binary
+pre-commit
+isort
+flake8
