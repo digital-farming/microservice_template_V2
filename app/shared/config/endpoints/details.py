@@ -37,3 +37,12 @@ class APIEndpointDetail:
         tags=EndpointTag.root,
         path='/'
     )
+
+    sample_add_v0 = Endpoint(
+        summary='Sample Add',
+        description='''
+        This is sample add endpoint. It is used to add two numbers.
+        ''',
+        tags=EndpointTag.sample_V0,
+        path='/add'
+    )
