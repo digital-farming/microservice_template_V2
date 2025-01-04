@@ -1,0 +1,5 @@
+fastapi[standard]
+SQLAlchemy
+asyncpg
+pytest
+psycopg2-binary
