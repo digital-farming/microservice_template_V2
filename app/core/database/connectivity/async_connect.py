@@ -31,7 +31,7 @@ AsyncSessionLocal = sessionmaker(
 
 
 # dependency injection
-async def get_db():
+async def get_async_db():
     """
     function to get database session object for database operations
     Yields:

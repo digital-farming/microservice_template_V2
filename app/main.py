@@ -1,6 +1,11 @@
-from fastapi import FastAPI
+from fastapi import (
+    Depends,
+    FastAPI,
+    HTTPException,
+)
 
 from app.app_setup import App
+from app.core.database.connectivity.checker import check_db_connection
 from app.shared.config.endpoints.details import APIEndpointDetail
 
 
@@ -18,5 +23,8 @@ app = FastAPI(
          summary=APIEndpointDetail.root.summary,
          description=APIEndpointDetail.root.description,
          )
-async def root():
-    return {"message": "Hello World"}
+async def root(is_db_connected: bool = Depends(check_db_connection)):
+    if is_db_connected:
+        return {"message": "Database is connected"}
+
+    raise HTTPException(status_code=500, detail="Database is not connected")
